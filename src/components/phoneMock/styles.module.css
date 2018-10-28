@@ -1,0 +1,97 @@
+:root {
+  --darkbluegray: rgb(65, 82, 96);
+  --bluegray: rgb(85, 95, 107);
+  --btnColor: rgb(73, 82, 91);
+  --speakerColor: rgb(62, 71, 82);
+  --black: rgb(30, 30, 30);
+  --cream: rgb(242, 235, 226);
+  --lightGray: rgb(176, 176, 176);
+  --lighterGray: rgb(218, 218, 218);
+  --borderColor: rgb(98, 96, 93);
+  --bodyColor: rgb(102, 115, 133);
+}
+
+body {
+  background: var(--bodyColor);
+}
+
+.phone {
+  margin: 10px auto 50px auto;
+  box-shadow: 10px 10px 10px var(--darkbluegray);
+}
+
+.phone {
+  height: 428px;
+  width: 226px;
+  background: var(--darkbluegray);
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone_shade {
+  position: absolute;
+  height: 500px;
+  width: 200px;
+  left: 50%;
+  background: var(--bluegray);
+  transform: rotate(18deg);
+}
+
+.phone_speaker {
+  height: 8px;
+  width: 42px;
+  border-radius: 4px;
+  background: var(--speakerColor);
+  position: relative;
+  top: 23px;
+  left: 50%;
+  margin-left: -21px;
+}
+
+.phone_button {
+  height: 40px;
+  width: 40px;
+  background: var(--btnColor);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  bottom: 10px;
+}
+
+.phone_screen {
+  height: 302px;
+  width: 208px;
+  background: var(--cream);
+  position: absolute;
+  left: 9px;
+  top: 58px;
+  overflow: hidden;
+}
+
+.phone_menu {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  background: white;
+  width: 15px;
+  height: 2px;
+}
+
+.phone_menu:before {
+  content: '';
+  width: 15px;
+  height: 2px;
+  top: 5px;
+  background: var(--cream);
+  position: absolute;
+}
+.phone_menu:after {
+  content: '';
+  width: 15px;
+  height: 2px;
+  top: 10px;
+  background: var(--cream);
+  position: absolute;
+}

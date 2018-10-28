@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurrencySelect> should render 1`] = `
+<div
+  className="wrapper"
+>
+  <i
+    className="icon_prev"
+  />
+  <span
+    className="currency_name"
+  />
+  <div
+    className="children_wrapper"
+  />
+  <i
+    className="icon_next"
+  />
+</div>
+`;
+
+exports[`<CurrencySelect> should render 2`] = `
+<div
+  className="wrapper"
+>
+  <i
+    className="icon_prev"
+  />
+  <span
+    className="currency_name"
+  />
+  <div
+    className="children_wrapper"
+  >
+    <span>
+      this is child
+    </span>
+  </div>
+  <i
+    className="icon_next"
+  />
+</div>
+`;
