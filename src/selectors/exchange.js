@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect'
 import { selectRates, selectMainCurrency } from './rates'
 import multiply from 'utils/multiply'
+import precisionDecimals from 'utils/precisionDecimals'
 
 const selectExchange = state => state.widgets.exchange
 
@@ -33,11 +34,22 @@ export const selectRate = createSelector(
       return null
     }
 
-    let rate = 1 / ratesToMainCurrency.currencyFrom
+    const rate = multiply(
+      1 / ratesToMainCurrency.currencyFrom,
+      ratesToMainCurrency.currencyTo
+    )
 
     return rate
   }
 )
+
+export const selectHumanReadableRate = createSelector([selectRate], rate => {
+  if (!rate) {
+    return null
+  }
+
+  return String(precisionDecimals(rate, 4))
+})
 
 export const selectOutput = createSelector(
   [selectRate, selectAmount, selectCurrencyTo],
@@ -46,6 +58,6 @@ export const selectOutput = createSelector(
       return null
     }
 
-    return String(multiply(rate, amount)).replace(/(\d+\.\d{4,4})(\d+)$/, '$1')
+    return String(precisionDecimals(multiply(rate, amount), 4))
   }
 )

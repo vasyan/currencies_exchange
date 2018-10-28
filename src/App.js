@@ -7,7 +7,7 @@ import PhoneMock from 'components/phoneMock'
 import styles from './styles.module.css'
 import './index.css'
 
-const CALL_API_TIMEOUT = 1200000
+const CALL_API_TIMEOUT = 10000
 
 class App extends React.Component {
   componentDidMount() {

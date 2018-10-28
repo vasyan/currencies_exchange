@@ -9,26 +9,9 @@ exports[`<CurrencySelect> should render 1`] = `
   />
   <span
     className="currency_name"
-  />
-  <div
-    className="children_wrapper"
-  />
-  <i
-    className="icon_next"
-  />
-</div>
-`;
-
-exports[`<CurrencySelect> should render 2`] = `
-<div
-  className="wrapper"
->
-  <i
-    className="icon_prev"
-  />
-  <span
-    className="currency_name"
-  />
+  >
+    __CURRENCY_NAME__
+  </span>
   <div
     className="children_wrapper"
   >

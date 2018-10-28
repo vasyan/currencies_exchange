@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {
   selectCurrencyFrom,
   selectCurrencyTo,
-  selectRate,
+  selectHumanReadableRate,
   selectOutput
 } from 'selectors/exchange'
 import { changeCurrencyTo } from 'actions/exchange'
@@ -39,7 +39,7 @@ const Output = ({
 function mapStateToProps(state) {
   return {
     value: selectOutput(state),
-    rate: selectRate(state),
+    rate: selectHumanReadableRate(state),
     currencyFrom: selectCurrencyFrom(state),
     currencyTo: selectCurrencyTo(state)
   }

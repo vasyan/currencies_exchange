@@ -1,8 +1,12 @@
 .value_wrapper {
   text-align: right;
   margin-right: 10px;
+  max-width: 100px;
+  overflow: hidden;
 }
 
 .rate_wrapper {
+  padding-top: 10px;
+  padding-left: 10px;
   font-size: 12px;
 }
