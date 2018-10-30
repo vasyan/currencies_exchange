@@ -1,0 +1,4 @@
+{
+  "getRatesUri": "https://openexchangerates.org/api/latest.json",
+  "mockGetRatesApi": false
+}

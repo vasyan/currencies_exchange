@@ -3,7 +3,7 @@
 exports[`Exchange reducer should change currency for exchange 1`] = `
 Object {
   "amount": "",
-  "currencyFrom": "GBP",
+  "currencyFrom": "EUR",
   "currencyTo": "EUR",
 }
 `;
@@ -28,7 +28,7 @@ exports[`Exchange reducer should change currency for exchange to 2`] = `
 Object {
   "amount": "",
   "currencyFrom": "USD",
-  "currencyTo": "GBP",
+  "currencyTo": "USD",
 }
 `;
 

@@ -12,7 +12,7 @@ const defaultState = {
   amount: ''
 }
 
-function getNextCurrencyByDirection(value, occupied, direction) {
+function getNextCurrencyByDirection(value, direction) {
   let index = CURRENCIES.indexOf(value) + direction
   const length = CURRENCIES.length - 1
 
@@ -20,10 +20,6 @@ function getNextCurrencyByDirection(value, occupied, direction) {
     index = length
   } else if (index > length) {
     index = 0
-  }
-
-  if (CURRENCIES[index] === occupied) {
-    return getNextCurrencyByDirection(CURRENCIES[index], occupied, direction)
   }
 
   return CURRENCIES[index]
@@ -40,21 +36,13 @@ export default function exchange(state = defaultState, { type, payload }) {
     case CHANGE_CURRENCY_FROM:
       return {
         ...state,
-        currencyFrom: getNextCurrencyByDirection(
-          state.currencyFrom,
-          state.currencyTo,
-          payload
-        )
+        currencyFrom: getNextCurrencyByDirection(state.currencyFrom, payload)
       }
 
     case CHANGE_CURRENCY_TO:
       return {
         ...state,
-        currencyTo: getNextCurrencyByDirection(
-          state.currencyTo,
-          state.currencyFrom,
-          payload
-        )
+        currencyTo: getNextCurrencyByDirection(state.currencyTo, payload)
       }
 
     default:
