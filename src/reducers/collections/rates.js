@@ -1,10 +1,9 @@
-export const GET_RATE_START = 'rates/GET_RATE_START'
-export const GET_RATE_SUCCESS = 'rates/GET_RATE_SUCCESS'
-export const GET_RATE_FAIL = 'rates/GET_RATE_FAIL'
+export const GET_RATES_START = 'rates/GET_RATES_START'
+export const GET_RATES_SUCCESS = 'rates/GET_RATES_SUCCESS'
 
 export default function rates(state = {}, { type, payload }) {
   switch (type) {
-    case GET_RATE_SUCCESS:
+    case GET_RATES_SUCCESS:
       return {
         ...state,
         [payload.base]: {

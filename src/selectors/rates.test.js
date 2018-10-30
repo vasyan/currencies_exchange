@@ -15,6 +15,8 @@ describe('Rates selector', () => {
   })
 
   describe('selectMainCurrency', () => {
-    expect(selectMainCurrency()).toBe('USD')
+    it('should return USD as main currency', () => {
+      expect(selectMainCurrency()).toBe('USD')
+    })
   })
 })

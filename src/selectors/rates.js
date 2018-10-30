@@ -1,4 +1,4 @@
 export const selectRates = state => state.collections.rates
 
-// mock base currency for convertion
+// Free plan provides only USD rates
 export const selectMainCurrency = () => 'USD'

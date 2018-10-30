@@ -1,12 +1,12 @@
-import multiply from 'utils/multiply'
 import Api from 'api'
 import {
   AMOUNT_INPUT,
   CHANGE_CURRENCY_FROM,
   CHANGE_CURRENCY_TO
 } from 'reducers/widgets/exchange'
-import { GET_RATE_START, GET_RATE_SUCCESS } from 'reducers/collections/rates'
+import { GET_RATES_START, GET_RATES_SUCCESS } from 'reducers/collections/rates'
 import precisionDecimals from 'utils/precisionDecimals'
+import randomiseRates from 'utils/randomiseRates'
 
 function normalizeAmount(value) {
   const input = value
@@ -18,6 +18,10 @@ function normalizeAmount(value) {
 
   if (input === '.') {
     return ''
+  }
+
+  if (input.match(/\.$/)) {
+    return input
   }
 
   return String(precisionDecimals(input, 2))
@@ -44,34 +48,17 @@ export function changeCurrencyTo(direction) {
   }
 }
 
-function randomiseRates(response) {
-  const { rates } = response
-  const newRates = {}
-
-  Object.keys(response.rates).forEach(key => {
-    const factor = Math.random() < 0.5 ? -1 : 1
-    const shift = (Math.floor(Math.random() * 5) + 1) / 1000
-
-    newRates[key] = multiply(rates[key], 1 + shift * factor)
-  })
-
-  return {
-    ...response,
-    rates: newRates
-  }
-}
-
 // rates prodvided with hourly updates. so it's boring
 // for better representability mutate data with tiny random value
 export function getRates() {
   return dispatch => {
     dispatch({
-      type: GET_RATE_START
+      type: GET_RATES_START
     })
 
-    Api.getRates().then(data => {
+    return Api.getRates().then(data => {
       dispatch({
-        type: GET_RATE_SUCCESS,
+        type: GET_RATES_SUCCESS,
         payload: randomiseRates(data)
       })
     })

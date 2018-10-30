@@ -1,15 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
-
-body {
-  /* background-color: #8d6e63; */
-  /* background-image: url('./phone.png');
-  background-position-y: -170px;
-  background-position-x: 50%;
-  background-size: 930px;
-  background-repeat: no-repeat;
-  padding-top: 91px; */
-}
-
 .wrapper {
   padding-top: 50px;
   min-height: 100%;

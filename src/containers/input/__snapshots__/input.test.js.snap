@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input> should call action on currency input change 1`] = `
+Array [
+  Object {
+    "payload": "42",
+    "type": "exchange/AMOUNT_INPUT",
+  },
+]
+`;
+
+exports[`<Input> should render 1`] = `
+<div
+  className="wrapper"
+>
+  <CurrencySelect
+    currencyName="FOO"
+    onNext={[Function]}
+    onPrev={[Function]}
+  >
+    <div
+      className="input_wrapper"
+    >
+      <input
+        autoFocus={true}
+        className="input"
+        onChange={[Function]}
+        type="text"
+        value="42"
+      />
+    </div>
+  </CurrencySelect>
+</div>
+`;
