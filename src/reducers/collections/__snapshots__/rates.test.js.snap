@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rates reducer should change currency for exchange to 1`] = `
+Object {
+  "FOO": Object {
+    "BAR": 42,
+  },
+}
+`;
+
+exports[`Rates reducer should return initial state 1`] = `Object {}`;

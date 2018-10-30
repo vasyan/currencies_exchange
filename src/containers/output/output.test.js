@@ -2,11 +2,10 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import App from './App'
+import Output from './index'
 
-describe('<App>', () => {
-  const store = configureMockStore([thunk])({
+describe('<Output>', () => {
+  const store = configureMockStore()({
     widgets: {
       exchange: {
         currencyFrom: 'FOO',
@@ -23,20 +22,9 @@ describe('<App>', () => {
       }
     }
   })
-
-  beforeEach(() => {
-    store.clearActions()
-  })
-
   it('should render', () => {
     expect(
-      shallowToJson(shallow(<App store={store} />).dive())
+      shallowToJson(shallow(<Output store={store} />).dive())
     ).toMatchSnapshot()
-  })
-
-  it('should fetch rates on mount', async () => {
-    shallow(<App store={store} />).dive()
-
-    expect(store.getActions()).toContainEqual({ type: 'rates/GET_RATES_START' })
   })
 })

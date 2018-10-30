@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Output> should render 1`] = `
+<div>
+  <CurrencySelect
+    currencyName="BAR"
+    onNext={[Function]}
+    onPrev={[Function]}
+  >
+    <div
+      className="value_wrapper"
+    >
+      <span>
+        23.9999
+      </span>
+    </div>
+  </CurrencySelect>
+  <div
+    className="rate_wrapper"
+  >
+    <span>
+      1 
+      FOO
+       = 
+      0.5714
+       
+      BAR
+    </span>
+  </div>
+</div>
+`;

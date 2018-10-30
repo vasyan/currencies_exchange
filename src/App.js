@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Input from 'containers/input'
 import Output from 'containers/output'
 import { getRates } from 'actions/exchange'
-import PhoneMock from 'components/phoneMock'
+import PhoneLayout from 'components/phoneLayout'
 import styles from './styles.module.css'
 import './index.css'
 
@@ -11,8 +11,8 @@ const CALL_API_TIMEOUT = 10000
 
 class App extends React.Component {
   componentDidMount() {
-    this.callApi()
     this.callApiInterval = setInterval(this.callApi, CALL_API_TIMEOUT)
+    this.callApi()
   }
 
   componentWillUnmount() {
@@ -26,12 +26,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <PhoneMock>
+      <PhoneLayout>
         <div className={styles.wrapper}>
           <Input />
           <Output />
         </div>
-      </PhoneMock>
+      </PhoneLayout>
     )
   }
 }

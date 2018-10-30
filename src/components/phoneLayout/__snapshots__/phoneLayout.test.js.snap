@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhoneLayout> should render 1`] = `
+<div
+  className="phone"
+>
+  <div
+    className="phone_shade"
+  />
+  <div
+    className="phone_speaker"
+  />
+  <div
+    className="phone_screen"
+  />
+  <div
+    className="phone_button"
+  />
+</div>
+`;

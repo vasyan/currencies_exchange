@@ -7,11 +7,11 @@ exports[`<CurrencySelect> should render 1`] = `
   <i
     className="icon_prev"
   />
-  <span
+  <div
     className="currency_name"
   >
     __CURRENCY_NAME__
-  </span>
+  </div>
   <div
     className="children_wrapper"
   >

@@ -35,22 +35,22 @@ describe('Exchange actions', () => {
 
   describe('setAmountInput', () => {
     it('should dispatch normalized input value', () => {
-      expect(store.dispatch(setAmountInput('42.12345'))).toMatchObject({
+      expect(store.dispatch(setAmountInput('42.12345'))).toEqual({
         payload: '42.12',
         type: 'exchange/AMOUNT_INPUT'
       })
 
-      expect(setAmountInput('42.1')).toMatchObject({
+      expect(setAmountInput('42.1')).toEqual({
         payload: '42.1',
         type: 'exchange/AMOUNT_INPUT'
       })
 
-      expect(setAmountInput('42.')).toMatchObject({
+      expect(setAmountInput('42.')).toEqual({
         payload: '42.',
         type: 'exchange/AMOUNT_INPUT'
       })
 
-      expect(setAmountInput('.')).toMatchObject({
+      expect(setAmountInput('.')).toEqual({
         payload: '',
         type: 'exchange/AMOUNT_INPUT'
       })
@@ -59,7 +59,7 @@ describe('Exchange actions', () => {
 
   describe('changeCurrencyFrom', () => {
     it('should dispatch gotten currency code', () => {
-      expect(changeCurrencyFrom('FOO')).toMatchObject({
+      expect(changeCurrencyFrom('FOO')).toEqual({
         payload: 'FOO',
         type: 'exchange/CHANGE_CURRENCY_FROM'
       })
@@ -68,7 +68,7 @@ describe('Exchange actions', () => {
 
   describe('changeCurrencyTo', () => {
     it('should dispatch gotten currency code', () => {
-      expect(changeCurrencyTo('BAR')).toMatchObject({
+      expect(changeCurrencyTo('BAR')).toEqual({
         payload: 'BAR',
         type: 'exchange/CHANGE_CURRENCY_TO'
       })

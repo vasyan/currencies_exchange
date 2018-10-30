@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exchange reducer should change currency for exchange 1`] = `
+Object {
+  "amount": "",
+  "currencyFrom": "GBP",
+  "currencyTo": "EUR",
+}
+`;
+
+exports[`Exchange reducer should change currency for exchange 2`] = `
+Object {
+  "amount": "",
+  "currencyFrom": "GBP",
+  "currencyTo": "EUR",
+}
+`;
+
+exports[`Exchange reducer should change currency for exchange to 1`] = `
+Object {
+  "amount": "",
+  "currencyFrom": "USD",
+  "currencyTo": "GBP",
+}
+`;
+
+exports[`Exchange reducer should change currency for exchange to 2`] = `
+Object {
+  "amount": "",
+  "currencyFrom": "USD",
+  "currencyTo": "GBP",
+}
+`;
+
+exports[`Exchange reducer should return initial state 1`] = `
+Object {
+  "amount": "",
+  "currencyFrom": "USD",
+  "currencyTo": "EUR",
+}
+`;
