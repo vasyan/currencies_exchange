@@ -1,12 +1,14 @@
 .value_wrapper {
   display: flex;
+  overflow: hidden;
   align-items: center;
   justify-content: flex-end;
-  text-align: right;
-  margin-right: 10px;
+
   max-width: 100px;
   height: 30px;
-  overflow: hidden;
+  margin-right: 10px;
+
+  text-align: right;
 }
 
 .value {
@@ -14,7 +16,8 @@
 }
 
 .rate_wrapper {
+  font-size: 12px;
+
   padding-top: 10px;
   padding-left: 10px;
-  font-size: 12px;
 }

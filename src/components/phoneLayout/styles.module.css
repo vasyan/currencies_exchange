@@ -16,82 +16,101 @@ body {
 }
 
 .phone {
-  margin: 10px auto 50px auto;
-  box-shadow: 10px 10px 10px var(--darkbluegray);
-}
-
-.phone {
-  height: 428px;
-  width: 226px;
-  background: var(--darkbluegray);
-  border-radius: 5px;
   position: relative;
+
   overflow: hidden;
+
+  width: 226px;
+  height: 428px;
+  margin: 10px auto 50px auto;
+
+  border-radius: 5px;
+  background: var(--darkbluegray);
+  box-shadow: 10px 10px 10px var(--darkbluegray);
 }
 
 .phone_shade {
   position: absolute;
-  height: 500px;
-  width: 200px;
   left: 50%;
-  background: var(--bluegray);
+
+  width: 200px;
+  height: 500px;
+
   transform: rotate(18deg);
+
+  background: var(--bluegray);
 }
 
 .phone_speaker {
-  height: 8px;
-  width: 42px;
-  border-radius: 4px;
-  background: var(--speakerColor);
   position: relative;
   top: 23px;
   left: 50%;
+
+  width: 42px;
+  height: 8px;
   margin-left: -21px;
+
+  border-radius: 4px;
+  background: var(--speakerColor);
 }
 
 .phone_button {
-  height: 40px;
-  width: 40px;
-  background: var(--btnColor);
-  border-radius: 50%;
   position: absolute;
-  left: 50%;
-  margin-left: -20px;
   bottom: 10px;
+  left: 50%;
+
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+
+  border-radius: 50%;
+  background: var(--btnColor);
 }
 
 .phone_screen {
-  height: 302px;
-  width: 208px;
-  background: var(--cream);
   position: absolute;
-  left: 9px;
   top: 58px;
+  left: 9px;
+
   overflow: hidden;
+
+  width: 208px;
+  height: 302px;
+
+  background: var(--cream);
 }
 
 .phone_menu {
   position: absolute;
-  right: 10px;
   top: 9px;
-  background: white;
+  right: 10px;
+
   width: 15px;
   height: 2px;
+
+  background: white;
 }
 
 .phone_menu:before {
-  content: '';
-  width: 15px;
-  height: 2px;
+  position: absolute;
   top: 5px;
-  background: var(--cream);
-  position: absolute;
-}
-.phone_menu:after {
-  content: '';
+
   width: 15px;
   height: 2px;
-  top: 10px;
+
+  content: '';
+
   background: var(--cream);
+}
+
+.phone_menu:after {
   position: absolute;
+  top: 10px;
+
+  width: 15px;
+  height: 2px;
+
+  content: '';
+
+  background: var(--cream);
 }
