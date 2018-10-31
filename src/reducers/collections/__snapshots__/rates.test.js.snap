@@ -5,7 +5,16 @@ Object {
   "FOO": Object {
     "BAR": 42,
   },
+  "hasError": false,
+  "isInitialFetched": true,
+  "isOnFetch": false,
 }
 `;
 
-exports[`Rates reducer should return initial state 1`] = `Object {}`;
+exports[`Rates reducer should return initial state 1`] = `
+Object {
+  "hasError": false,
+  "isInitialFetched": false,
+  "isOnFetch": true,
+}
+`;

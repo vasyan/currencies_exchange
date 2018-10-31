@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
   selectCurrencyFrom,
@@ -35,6 +36,13 @@ const Output = ({
     </div>
   </div>
 )
+
+Output.propTypes = {
+  value: PropTypes.string.isRequired,
+  rate: PropTypes.string.isRequired,
+  currencyFrom: PropTypes.string.isRequired,
+  currencyTo: PropTypes.string.isRequired
+}
 
 function mapStateToProps(state) {
   return {

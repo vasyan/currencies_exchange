@@ -1,4 +1,5 @@
 {
-  "getRatesUri": "",
-  "mockGetRatesApi": true
+  "getRatesUri": "https://openexchangerates.org/api/latest.json",
+  "mockGetRatesApi": false,
+  "apiPoolInterval": 5000
 }

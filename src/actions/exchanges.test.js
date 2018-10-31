@@ -21,9 +21,13 @@ jest.mock('api/index', () => {
   }
 })
 
-jest.mock('utils/randomiseRates', () => {
-  return jest.fn().mockImplementation(data => data)
-})
+jest.mock('utils/randomiseRates', () =>
+  jest.fn().mockImplementation(data => data)
+)
+
+jest.mock('selectors/app', () => ({
+  selectIsOnLoading: jest.fn().mockImplementation(() => false)
+}))
 
 const middlewares = [thunk]
 const store = configureMockStore(middlewares)()

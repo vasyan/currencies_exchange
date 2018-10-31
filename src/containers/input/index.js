@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setAmountInput, changeCurrencyFrom } from 'actions/exchange'
 import { selectCurrencyFrom, selectAmount } from 'selectors/exchange'
@@ -30,6 +31,11 @@ const Input = ({
     </CurrencySelect>
   </div>
 )
+
+Input.propTypes = {
+  currency: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired
+}
 
 function mapStateToProps(state) {
   return {

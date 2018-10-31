@@ -6,6 +6,7 @@ exports[`<CurrencySelect> should render 1`] = `
 >
   <i
     className="icon_prev"
+    onClick={[MockFunction]}
   />
   <div
     className="currency_name"
@@ -21,6 +22,7 @@ exports[`<CurrencySelect> should render 1`] = `
   </div>
   <i
     className="icon_next"
+    onClick={[MockFunction]}
   />
 </div>
 `;

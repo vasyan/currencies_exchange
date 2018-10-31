@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 
-export default ({ children }) => (
+const PhoneLayout = ({ children }) => (
   <div className={styles.phone}>
     <div className={styles.phone_shade} />
     <div className={styles.phone_speaker} />
@@ -9,3 +10,9 @@ export default ({ children }) => (
     <div className={styles.phone_button} />
   </div>
 )
+
+PhoneLayout.propTypes = {
+  children: PropTypes.any
+}
+
+export default PhoneLayout

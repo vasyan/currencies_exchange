@@ -1,4 +1,8 @@
-import { selectRates, selectMainCurrency } from './rates'
+import {
+  selectRates,
+  selectMainCurrency,
+  selectIsInitialFetched
+} from './rates'
 
 describe('Rates selector', () => {
   describe('selectRates', () => {
@@ -17,6 +21,21 @@ describe('Rates selector', () => {
   describe('selectMainCurrency', () => {
     it('should return USD as main currency', () => {
       expect(selectMainCurrency()).toBe('USD')
+    })
+  })
+
+  describe('selectIsInitialFetched', () => {
+    it('should return initial fetch mark', () => {
+      expect(
+        selectIsInitialFetched({
+          collections: { rates: { isInitialFetched: true } }
+        })
+      ).toBe(true)
+      expect(
+        selectIsInitialFetched({
+          collections: { rates: { isInitialFetched: false } }
+        })
+      ).toBe(false)
     })
   })
 })

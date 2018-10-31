@@ -4,7 +4,12 @@ import {
   CHANGE_CURRENCY_FROM,
   CHANGE_CURRENCY_TO
 } from 'reducers/widgets/exchange'
-import { GET_RATES_START, GET_RATES_SUCCESS } from 'reducers/collections/rates'
+import {
+  GET_RATES_START,
+  GET_RATES_SUCCESS,
+  GET_RATES_FAIL
+} from 'reducers/collections/rates'
+import { selectIsOnLoading } from 'selectors/app'
 import precisionDecimals from 'utils/precisionDecimals'
 import randomiseRates from 'utils/randomiseRates'
 
@@ -48,19 +53,36 @@ export function changeCurrencyTo(direction) {
   }
 }
 
+function onGetRatesSuccess(data) {
+  return {
+    type: GET_RATES_SUCCESS,
+    payload: randomiseRates(data)
+  }
+}
+
 // rates prodvided with hourly updates. so it's boring
 // for better representability mutate data with tiny random value
 export function getRates() {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch({
       type: GET_RATES_START
     })
 
-    return Api.getRates().then(data => {
-      dispatch({
-        type: GET_RATES_SUCCESS,
-        payload: randomiseRates(data)
+    return Api.getRates()
+      .then(data => {
+        if (selectIsOnLoading(getState())) {
+          setTimeout(() => {
+            dispatch(onGetRatesSuccess(data))
+          }, 1000)
+          return
+        }
+
+        dispatch(onGetRatesSuccess(data))
       })
-    })
+      .catch(err => {
+        dispatch({
+          type: GET_RATES_FAIL
+        })
+      })
   }
 }

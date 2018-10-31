@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Error> should render 1`] = `
+<div
+  className="wrapper"
+>
+  <div>
+    <p
+      className="alert"
+    >
+      Sorry, something 
+      <br />
+      has gone wrong.
+    </p>
+    <span
+      className="try_again"
+      onClick={[MockFunction]}
+    >
+      Try again
+    </span>
+  </div>
+</div>
+`;

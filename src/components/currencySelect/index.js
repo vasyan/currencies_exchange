@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 
 const CurrencySelect = ({ onNext, onPrev, currencyName, children }) => (
@@ -9,5 +10,12 @@ const CurrencySelect = ({ onNext, onPrev, currencyName, children }) => (
     <i className={styles.icon_next} onClick={onNext} />
   </div>
 )
+
+CurrencySelect.propTypes = {
+  onNext: PropTypes.func.isRequired,
+  onPrev: PropTypes.func.isRequired,
+  currencyName: PropTypes.string.isRequired,
+  children: PropTypes.any
+}
 
 export default CurrencySelect

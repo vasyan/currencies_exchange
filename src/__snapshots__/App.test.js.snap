@@ -1,12 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App> should render 1`] = `
-<_default>
+exports[`<App> should render error message on problem with initial fetch 1`] = `
+<PhoneLayout>
   <div
     className="wrapper"
   >
-    <Connect(Input) />
-    <Connect(Output) />
+    <Error
+      onClick={[Function]}
+    />
   </div>
-</_default>
+</PhoneLayout>
+`;
+
+exports[`<App> should render loader on initial fetch 1`] = `
+<PhoneLayout>
+  <div
+    className="wrapper"
+  >
+    <Loader />
+  </div>
+</PhoneLayout>
 `;

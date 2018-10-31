@@ -6,9 +6,7 @@ import precisionDecimals from 'utils/precisionDecimals'
 const selectExchange = state => state.widgets.exchange
 
 export const selectCurrencyFrom = state => selectExchange(state).currencyFrom
-
 export const selectCurrencyTo = state => selectExchange(state).currencyTo
-
 export const selectAmount = state => selectExchange(state).amount
 
 const selectRatesToMainCurrency = createSelector(
