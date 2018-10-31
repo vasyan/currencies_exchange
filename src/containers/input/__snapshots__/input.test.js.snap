@@ -25,6 +25,11 @@ exports[`<Input> should render 1`] = `
         autoFocus={true}
         className="input"
         onChange={[Function]}
+        style={
+          Object {
+            "fontSize": 42,
+          }
+        }
         type="text"
         value="42"
       />

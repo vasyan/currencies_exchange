@@ -1,8 +1,16 @@
 .value_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   text-align: right;
   margin-right: 10px;
   max-width: 100px;
+  height: 30px;
   overflow: hidden;
+}
+
+.value {
+  transition: font-size 0.1s ease-in-out;
 }
 
 .rate_wrapper {

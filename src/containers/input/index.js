@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { setAmountInput, changeCurrencyFrom } from 'actions/exchange'
 import { selectCurrencyFrom, selectAmount } from 'selectors/exchange'
 import CurrencySelect from 'components/currencySelect'
+import getFieldStyles from 'utils/getFieldStyles'
 import styles from './styles.module.css'
 
 const Input = ({
@@ -24,6 +25,7 @@ const Input = ({
           className={styles.input}
           value={value}
           onChange={onInputChange}
+          style={getFieldStyles(value)}
           type="text"
           autoFocus
         />

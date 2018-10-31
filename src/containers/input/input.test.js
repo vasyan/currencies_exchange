@@ -4,6 +4,10 @@ import { shallowToJson } from 'enzyme-to-json'
 import configureMockStore from 'redux-mock-store'
 import Input from './index'
 
+jest.mock('utils/getFieldStyles', () =>
+  jest.fn().mockImplementation(() => ({ fontSize: 42 }))
+)
+
 describe('<Input>', () => {
   const store = configureMockStore()({
     widgets: {

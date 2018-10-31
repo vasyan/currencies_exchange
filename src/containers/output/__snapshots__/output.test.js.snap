@@ -10,7 +10,14 @@ exports[`<Output> should render 1`] = `
     <div
       className="value_wrapper"
     >
-      <span>
+      <span
+        className="value"
+        style={
+          Object {
+            "fontSize": 42,
+          }
+        }
+      >
         23.9999
       </span>
     </div>

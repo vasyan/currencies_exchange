@@ -9,6 +9,7 @@ import {
 } from 'selectors/exchange'
 import { changeCurrencyTo } from 'actions/exchange'
 import CurrencySelect from 'components/currencySelect'
+import getFieldStyles from 'utils/getFieldStyles'
 import styles from './styles.module.css'
 
 const Output = ({
@@ -26,7 +27,9 @@ const Output = ({
       onPrev={onPrevCurrency}
     >
       <div className={styles.value_wrapper}>
-        <span>{value}</span>
+        <span style={getFieldStyles(value)} className={styles.value}>
+          {value}
+        </span>
       </div>
     </CurrencySelect>
     <div className={styles.rate_wrapper}>
