@@ -1,6 +1,7 @@
 import Api from 'api'
 import {
   AMOUNT_INPUT,
+  AMOUNT_OUTPUT,
   CHANGE_CURRENCY_FROM,
   CHANGE_CURRENCY_TO
 } from 'reducers/widgets/exchange'
@@ -35,6 +36,13 @@ function normalizeAmount(value) {
 export function setAmountInput(value) {
   return {
     type: AMOUNT_INPUT,
+    payload: normalizeAmount(value)
+  }
+}
+
+export function setAmountOutput(value) {
+  return {
+    type: AMOUNT_OUTPUT,
     payload: normalizeAmount(value)
   }
 }

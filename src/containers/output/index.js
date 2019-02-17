@@ -5,9 +5,9 @@ import {
   selectCurrencyFrom,
   selectCurrencyTo,
   selectHumanReadableRate,
-  selectOutput
+  selectAmountOutput
 } from 'selectors/exchange'
-import { changeCurrencyTo } from 'actions/exchange'
+import { changeCurrencyTo, setAmountOutput } from 'actions/exchange'
 import CurrencySelect from 'components/currencySelect'
 import getFieldStyles from 'utils/getFieldStyles'
 import styles from './styles.module.css'
@@ -18,7 +18,8 @@ const Output = ({
   currencyTo,
   rate,
   onPrevCurrency,
-  onNextCurrency
+  onNextCurrency,
+  onInputChange
 }) => (
   <div>
     <CurrencySelect
@@ -26,10 +27,15 @@ const Output = ({
       onNext={onNextCurrency}
       onPrev={onPrevCurrency}
     >
-      <div className={styles.value_wrapper}>
-        <span style={getFieldStyles(value)} className={styles.value}>
-          {value}
-        </span>
+      <div className={styles.input_wrapper}>
+        <input
+          className={styles.input}
+          value={value}
+          onChange={onInputChange}
+          style={getFieldStyles(value)}
+          type="text"
+          autoFocus
+        />
       </div>
     </CurrencySelect>
     <div className={styles.rate_wrapper}>
@@ -49,7 +55,7 @@ Output.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    value: selectOutput(state),
+    value: selectAmountOutput(state),
     rate: selectHumanReadableRate(state),
     currencyFrom: selectCurrencyFrom(state),
     currencyTo: selectCurrencyTo(state)
@@ -58,6 +64,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps() {
   return {
+    onInputChange: event => setAmountOutput(event.target.value),
     onPrevCurrency: () => changeCurrencyTo(-1),
     onNextCurrency: () => changeCurrencyTo(1)
   }

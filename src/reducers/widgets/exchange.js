@@ -1,4 +1,5 @@
 export const AMOUNT_INPUT = 'exchange/AMOUNT_INPUT'
+export const AMOUNT_OUTPUT = 'exchange/AMOUNT_OUTPUT'
 export const FROM_CURRENCE_CHANGE = 'exchange/FROM_CURRENCE_CHANGE'
 export const TO_CURRENCE_CHANGE = 'exchange/TO_CURRENCE_CHANGE'
 export const CHANGE_CURRENCY_FROM = 'exchange/CHANGE_CURRENCY_FROM'
@@ -9,7 +10,8 @@ const CURRENCIES = ['USD', 'EUR', 'GBP']
 const defaultState = {
   currencyFrom: CURRENCIES[0],
   currencyTo: CURRENCIES[1],
-  amount: ''
+  input: null,
+  output: null
 }
 
 function getNextCurrencyByDirection(value, direction) {
@@ -30,7 +32,15 @@ export default function exchange(state = defaultState, { type, payload }) {
     case AMOUNT_INPUT:
       return {
         ...state,
-        amount: payload
+        input: payload,
+        output: null
+      }
+
+    case AMOUNT_OUTPUT:
+      return {
+        ...state,
+        input: null,
+        output: payload
       }
 
     case CHANGE_CURRENCY_FROM:

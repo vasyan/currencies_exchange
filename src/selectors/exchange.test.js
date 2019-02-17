@@ -2,7 +2,7 @@ import {
   selectOutput,
   selectRate,
   selectHumanReadableRate,
-  selectAmount,
+  selectInput,
   selectCurrencyFrom,
   selectCurrencyTo
 } from './exchange'
@@ -57,11 +57,11 @@ describe('Exchange selector', () => {
     })
   })
 
-  describe('selectAmount', () => {
+  describe('selectInput', () => {
     const mockState = { widgets: { exchange: { amount: '42' } } }
 
     it('should select amount to exchange ', () => {
-      const selected = selectAmount(mockState)
+      const selected = selectInput(mockState)
 
       expect(selected).toBe('42')
     })
