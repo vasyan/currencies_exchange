@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import configureMockStore from 'redux-mock-store'
 import Output from './index'
@@ -14,7 +14,8 @@ describe('<Output>', () => {
       exchange: {
         currencyFrom: 'FOO',
         currencyTo: 'BAR',
-        amount: '42'
+        input: '42',
+        output: null
       }
     },
     collections: {
@@ -30,5 +31,18 @@ describe('<Output>', () => {
     expect(
       shallowToJson(shallow(<Output store={store} />).dive())
     ).toMatchSnapshot()
+  })
+
+  it('should call action on currency input change', () => {
+    const props = {
+      onInputChange: jest.fn()
+    }
+
+    const wrapper = mount(<Output store={store} {...props} />)
+    const event = { target: { value: '42.00' } }
+
+    wrapper.find('input').simulate('change', event)
+
+    expect(store.getActions()).toMatchSnapshot()
   })
 })

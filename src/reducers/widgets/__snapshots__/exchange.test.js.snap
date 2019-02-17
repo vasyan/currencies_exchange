@@ -2,40 +2,45 @@
 
 exports[`Exchange reducer should change currency for exchange 1`] = `
 Object {
-  "amount": "",
   "currencyFrom": "EUR",
   "currencyTo": "EUR",
+  "input": null,
+  "output": null,
 }
 `;
 
 exports[`Exchange reducer should change currency for exchange 2`] = `
 Object {
-  "amount": "",
   "currencyFrom": "GBP",
   "currencyTo": "EUR",
+  "input": null,
+  "output": null,
 }
 `;
 
 exports[`Exchange reducer should change currency for exchange to 1`] = `
 Object {
-  "amount": "",
   "currencyFrom": "USD",
   "currencyTo": "GBP",
+  "input": null,
+  "output": null,
 }
 `;
 
 exports[`Exchange reducer should change currency for exchange to 2`] = `
 Object {
-  "amount": "",
   "currencyFrom": "USD",
   "currencyTo": "USD",
+  "input": null,
+  "output": null,
 }
 `;
 
 exports[`Exchange reducer should return initial state 1`] = `
 Object {
-  "amount": "",
   "currencyFrom": "USD",
   "currencyTo": "EUR",
+  "input": null,
+  "output": null,
 }
 `;

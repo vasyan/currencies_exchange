@@ -15,7 +15,7 @@ function getStore({
       exchange: {
         currencyFrom: 'FOO',
         currencyTo: 'BAR',
-        amount: '42'
+        input: '42'
       }
     },
     collections: {

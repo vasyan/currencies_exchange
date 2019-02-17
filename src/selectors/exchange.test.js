@@ -1,31 +1,64 @@
 import {
-  selectOutput,
+  selectAmountInput,
+  selectAmountOutput,
   selectRate,
   selectHumanReadableRate,
-  selectInput,
   selectCurrencyFrom,
   selectCurrencyTo
 } from './exchange'
 
 describe('Exchange selector', () => {
-  describe('selectOutput', () => {
-    const mockParams = [1.277774, 42, 'USD']
+  describe('selectAmountOutput', () => {
+    const mockParams = [1.277774, 42, null]
 
     const getSelected = (params = mockParams) => {
-      return selectOutput.resultFunc.apply(null, params)
+      return selectAmountOutput.resultFunc.apply(null, params)
     }
 
-    it('should return null if rate is not represend', () => {
-      const mockParams = [null, 42, 'USD']
-      expect(getSelected(mockParams)).toBe(null)
+    it('should return 0 if input and output not represented', () => {
+      expect(getSelected([1, null, null])).toBe('0')
     })
 
-    it('should leave four digits after point', () => {
-      expect(getSelected().split('.')[1].length).toBe(4)
+    it('should return current value if input is not represend', () => {
+      expect(getSelected([0.5, null, 42])).toBe('42')
+    })
+
+    it('should return calculated value if output is null and input is represend', () => {
+      expect(getSelected([0.6, 42, null])).toBe('25.2')
+    })
+
+    it('should return null if rate is not represend', () => {
+      expect(getSelected([null, 42, null])).toBe(null)
     })
 
     it('should calculate exchanged amount correctly', () => {
-      expect(getSelected()).toBe('53.6665')
+      expect(getSelected([1.277774, 42, null])).toBe('53.66')
+    })
+  })
+
+  describe('selectAmountInput', () => {
+    const getSelected = params => {
+      return selectAmountInput.resultFunc.apply(null, params)
+    }
+
+    it('should return 0 if input and output not represented', () => {
+      expect(getSelected([1, null, null])).toBe('0')
+    })
+
+    it('should return current value if output is not represend', () => {
+      expect(getSelected([0.5, 42, null])).toBe('42')
+    })
+
+    it('should return calculated value if input is null and output is represend', () => {
+      expect(getSelected([0.8, null, 42])).toBe('52.5')
+    })
+
+    it('should return null if rate is not represend', () => {
+      expect(getSelected([null, 42, null])).toBe(null)
+    })
+
+    it('should calculate exchanged amount correctly', () => {
+      expect(getSelected([1.4, null, 42])).toBe('30')
     })
   })
 
@@ -47,23 +80,13 @@ describe('Exchange selector', () => {
   describe('selectHumanReadableRate', () => {
     const mockParams = [0.424242]
 
-    it('should leave four digits after point', () => {
+    it('should leave two digits after point', () => {
       const selected = selectHumanReadableRate.resultFunc.apply(
         null,
         mockParams
       )
 
-      expect(selected.split('.')[1].length).toBe(4)
-    })
-  })
-
-  describe('selectInput', () => {
-    const mockState = { widgets: { exchange: { amount: '42' } } }
-
-    it('should select amount to exchange ', () => {
-      const selected = selectInput(mockState)
-
-      expect(selected).toBe('42')
+      expect(selected.split('.')[1].length).toBe(2)
     })
   })
 

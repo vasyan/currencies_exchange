@@ -77,7 +77,7 @@ export const makeSelectAmount = type =>
       }
 
       if (type === TYPE_OUTPUT && output !== null) {
-        return output
+        return String(output)
       }
 
       if (type === TYPE_INPUT && input === null) {
@@ -85,7 +85,7 @@ export const makeSelectAmount = type =>
       }
 
       if (type === TYPE_INPUT && input !== null) {
-        return input
+        return String(input)
       }
     }
   )
